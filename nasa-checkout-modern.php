@@ -143,7 +143,7 @@ endif;
                                 p59042759["innerHTML"] = "";
                                 p59042759["style"]["display"] = "none";
                                 document["querySelectorAll"]("input[name^='billing_'],input[name^='shipping_']")["forEach"](v9018cc34 => {
-                                    if(v9018cc34["name"] != "billing_email") v9018cc34["value"] = "";
+                                    if(!(["billing_email","billing_country","shipping_country"]["includes"](v9018cc34["name"]))) v9018cc34["value"] = "";
                                 });
                             },
                             f1c6a7c64(paea34913,pa0291ac1){
@@ -152,6 +152,7 @@ endif;
                                 _3b384e9f_["value"] = (/^[0-9]+/["test"](paea34913["billing_first_name"])) ? paea34913["billing_first_name"] : `${paea34913["billing_first_name"]} ${paea34913["billing_last_name"]}`;
                                 document["querySelector"]("input[id='ship-to-different-address-checkbox']")["checked"] = true;
                                 document["querySelector"](".shipping_address")["style"]["display"] = "block";
+
                                 Object["keys"](paea34913)["forEach"]((pdb735814,p09726094) => {
                                     const _bb987d0b_ = document["querySelector"](`input[name^="${pdb735814}"]`);
                                     const _f14cc786_ = (Object["values"](paea34913)[p09726094]);
@@ -244,7 +245,7 @@ endif;
                                     <i class="fa fa-user" aria-hidden="true"></i>
                                     <input id="d82832d7" type="search" onkeyup="fbc451c53(this)" placeholder="Buscar la ID de la Tienda"/>
                                 </div>
-                                <div id="44c8f818" class="ctn-results" style="display:none;"/>
+                                <div id="44c8f818" class="ctn-results" style="display:none;"></div>
                             `
                         }));
                     </script>
@@ -252,7 +253,7 @@ endif;
                         <h3>
                             Información de la Tienda
                         </h3>
-                        <div class="form-row-wrap" id="c7a2ec1b"/>
+                        <div class="form-row-wrap" id="c7a2ec1b"></div>
                     </div>
                     <!-- [E] -->
                     </br>
