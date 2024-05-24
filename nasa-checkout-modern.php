@@ -318,3 +318,17 @@ endif;
         </div>
     </div>
 </div>
+
+<!-- [S - 22/05/24] Definición de las Entradas para el Ingreso de los Números de Empleados [LxingA ~ v1 ~ docs.lxinga.dev] -->
+<script async type="text/javascript">
+    const _91db9855_ = (document["getElementById"]("order_comments"));
+    const _a10ceeb7_ = (localStorage["getItem"]("_547a1b34_"));
+    if(_91db9855_ && _a10ceeb7_){
+        let _b6bd307f_ = "";
+        ((JSON["parse"](_a10ceeb7_))["filter"]((_8a90aba9_) => (typeof(_8a90aba9_) == "string"))["forEach"]((_1d775834_,_e5868a15_) => {
+            if(_e5868a15_ == 0) _b6bd307f_ += _1d775834_;
+            else _b6bd307f_ += "," + _1d775834_;
+        }));
+        _91db9855_["value"] = _b6bd307f_;
+    }
+</script>
