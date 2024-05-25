@@ -72,13 +72,29 @@ $dots = isset($nasa_opt['product_slide_dot']) && $nasa_opt['product_slide_dot'] 
 <script async type="text/javascript">
     const _aea34913_ = (document["querySelector"](".nasa-product-info-scroll"))["children"][2]["children"][0]["children"];
     const _51ec4ccd_ = (document["querySelector"](".quantity"));
-    const _e3d7135e_ = document["getElementById"]((_51ec4ccd_)["children"][2]["id"]);
+    const _ac5cff7e_ = (_51ec4ccd_["children"][2]);
+    const _e3d7135e_ = (document["getElementById"](_ac5cff7e_["id"]));
+    const _3a06ac3d_ = (document["getElementsByName"]("add-to-cart")[0]);
     const _bf396750_ = [];
-    const _3aa74ce6_ = [];
+    const _53865e0c_ = [[]];
+    const _3aa74ce6_ = {};
+    let _7dabfedf_ = 0;
+    if(sessionStorage["getItem"]("_d1ccd9d1_")) _7dabfedf_ = (Number(sessionStorage["getItem"]("_d1ccd9d1_")));
+    else sessionStorage["setItem"]("_d1ccd9d1_",_7dabfedf_);
+    const _a287426f_ = (new MutationObserver((_959c3422_) => {
+        for(let _8a90aba9_ of _959c3422_){
+            if(_8a90aba9_["attributeName"] == "class"){
+                if(_3a06ac3d_["classList"]["contains"]("loading")){
+                    sessionStorage["setItem"]("_d1ccd9d1_",((Number(sessionStorage["getItem"]("_d1ccd9d1_")) + 1)));
+                    _53865e0c_["push"]([]);
+                }
+            }
+        }
+    }));
+    _a287426f_["observe"](_3a06ac3d_,{attributes:true});
     if(_aea34913_["length"] > 0) for(let _8a90aba9_ = 0; _8a90aba9_ <= (_aea34913_["length"] - 1); _8a90aba9_++){
         if(_aea34913_[_8a90aba9_]["getAttribute"]("data-product-name")) _bf396750_["push"](_aea34913_[_8a90aba9_]["children"][1]["children"][0]["id"]);
     }if(_bf396750_["length"] > 0 && _e3d7135e_){
-        const _3a06ac3d_ = (document["querySelector"]("button[name='add-to-cart']"));
         const _4fa487e1_ = (_51ec4ccd_["children"][(_51ec4ccd_["children"]["length"] - 1)]);
         _4fa487e1_["onclick"] = ((_3bae0aa7_) => {
             let _dcf3340b_ = (_3bae0aa7_["target"]["parentElement"]["children"]["2"]["value"] - 1);
@@ -94,11 +110,20 @@ $dots = isset($nasa_opt['product_slide_dot']) && $nasa_opt['product_slide_dot'] 
             }
         });
         _3a06ac3d_["onclick"] = ((_3bae0aa7_) => {
+            const _4b1efc02_ = [];
+            const _2804a4ea_ = (_ac5cff7e_["value"]);
             _bf396750_["forEach"]((_c252057c_,_e5868a15_) => {
                 const _41405e39_ = (document["getElementById"](_c252057c_));
-                if(_e5868a15_ >= 1 && _41405e39_["getAttribute"]("data-display-state")) if(_41405e39_["value"] == "") _41405e39_["value"] = "123456";
-                if(_41405e39_ && (/^[0-9]+$/["test"](_41405e39_["value"]))) _3aa74ce6_[_e5868a15_] = _41405e39_["value"];
-                else _3aa74ce6_[_e5868a15_] = null;
+                if(_41405e39_ && (/^[0-9]+$/["test"](_41405e39_["value"]))) _53865e0c_[Number(sessionStorage["getItem"]("_d1ccd9d1_"))][_e5868a15_] = _41405e39_["value"];
+                else _53865e0c_[Number(sessionStorage["getItem"]("_d1ccd9d1_"))][_e5868a15_] = null;
+                if(_e5868a15_ >= 1 && (_41405e39_["getAttribute"]("data-display-state") && _41405e39_["value"]["length"] == 0)) _4b1efc02_["push"](_41405e39_);
+            });
+            _3aa74ce6_[_3a06ac3d_["value"]] = _53865e0c_;
+            _3a06ac3d_["setAttribute"]("data-quantity",(_2804a4ea_ - _4b1efc02_["length"]));
+            _ac5cff7e_["value"] = (_2804a4ea_ - _4b1efc02_["length"]);
+            _4b1efc02_["forEach"]((_aea34913_) => {
+                _aea34913_["removeAttribute"]("data-display-state");
+                _aea34913_["parentElement"]["parentElement"]["style"]["display"] = "none";
             });
             localStorage["setItem"]("_547a1b34_",(JSON["stringify"](_3aa74ce6_)));
         });
