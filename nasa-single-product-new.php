@@ -70,11 +70,11 @@ $dots = isset($nasa_opt['product_slide_dot']) && $nasa_opt['product_slide_dot'] 
 
 <!-- [S - 22/05/24] Definición de las Entradas para el Ingreso de los Números de Empleados [LxingA ~ v1 ~ docs.lxinga.dev] -->
 <script async type="text/javascript">
-    const _aea34913_ = (document["querySelector"](".nasa-product-info-scroll"))["children"][2]["children"][0]["children"];
+    const _aea34913_ = (document["querySelector"](".wc-pao-addons-container"))["children"];
     const _51ec4ccd_ = (document["querySelector"](".quantity"));
     const _ac5cff7e_ = (_51ec4ccd_["children"][2]);
     const _e3d7135e_ = (document["getElementById"](_ac5cff7e_["id"]));
-    const _3a06ac3d_ = (document["getElementsByName"]("add-to-cart")[0]);
+    const _3a06ac3d_ = (document["querySelector"]("button[type='submit']"));
     const _bf396750_ = [];
     const _53865e0c_ = [[]];
     const _3aa74ce6_ = {};
@@ -118,7 +118,7 @@ $dots = isset($nasa_opt['product_slide_dot']) && $nasa_opt['product_slide_dot'] 
                 else _53865e0c_[Number(sessionStorage["getItem"]("_d1ccd9d1_"))][_e5868a15_] = null;
                 if(_e5868a15_ >= 1 && (_41405e39_["getAttribute"]("data-display-state") && _41405e39_["value"]["length"] == 0)) _4b1efc02_["push"](_41405e39_);
             });
-            _3aa74ce6_[_3a06ac3d_["value"]] = _53865e0c_;
+            _3aa74ce6_[_3a06ac3d_["value"] == "" ? "ex" + Number(sessionStorage["getItem"]("_d1ccd9d1_")) : _3a06ac3d_["value"]] = _53865e0c_;
             _3a06ac3d_["setAttribute"]("data-quantity",(_2804a4ea_ - _4b1efc02_["length"]));
             _ac5cff7e_["value"] = (_2804a4ea_ - _4b1efc02_["length"]);
             _4b1efc02_["forEach"]((_aea34913_) => {
