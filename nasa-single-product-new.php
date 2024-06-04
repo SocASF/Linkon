@@ -70,7 +70,7 @@ $dots = isset($nasa_opt['product_slide_dot']) && $nasa_opt['product_slide_dot'] 
 
 <!-- [S - 22/05/24] Definición de las Entradas para el Ingreso de los Números de Empleados [LxingA ~ v1 ~ docs.lxinga.dev] -->
 <script async type="text/javascript">
-    const _aea34913_ = (document["querySelector"](".wc-pao-addons-container"))["children"];
+    const _aea34913_ = ((document["querySelector"](".wc-pao-addons-container") ?? {})["children"] ?? []);
     const _51ec4ccd_ = (document["querySelector"](".quantity"));
     const _ac5cff7e_ = (_51ec4ccd_["children"][2]);
     const _e3d7135e_ = (document["getElementById"](_ac5cff7e_["id"]));

