@@ -331,24 +331,15 @@ endif;
 <!-- [S - 22/05/24] Definición de las Entradas para el Ingreso de los Números de Empleados [LxingA ~ v1 ~ docs.lxinga.dev] -->
 <script async type="text/javascript">
     const _91db9855_ = (document["getElementById"]("order_comments"));
-    const _a10ceeb7_ = (localStorage["getItem"]("_547a1b34_"));
-    if(_91db9855_ && _a10ceeb7_){
-        let _b6bd307f_ = "";
-        let _451bf597_ = 1;
-        let _c03f3890_ = [];
-        (Object["values"](JSON["parse"](_a10ceeb7_))["forEach"]((c8a942e4) => {
-            for(let _e3841127_ = 0; _e3841127_ <= (c8a942e4["length"] - 1); _e3841127_++){
-                for(let _fa9f2066_ = 0; _fa9f2066_ <= (c8a942e4[_e3841127_]["length"] - 1); _fa9f2066_++){
-                    if(typeof(c8a942e4[_e3841127_][_fa9f2066_]) == "string") _c03f3890_["push"](c8a942e4[_e3841127_][_fa9f2066_]);
-                }
-            }
-        }));
-        _c03f3890_ = _c03f3890_["splice"](0,(8));
-        _c03f3890_["forEach"]((_b5deb6a1_,_78f0edab_) => {
-            if(_78f0edab_ == 0) _b6bd307f_ += _b5deb6a1_;
-            else _b6bd307f_ += "," + _b5deb6a1_;
-        });
-        sessionStorage["setItem"]("_d1ccd9d1_",0);
-        _91db9855_["value"] = _b6bd307f_;
+    const _45568bb8_ = (document["getElementById"]("order_review"))["children"][0]["children"][1];
+    const _c03f3890_ = [];
+    let _309c231a_ = "";
+    for(let cb46cf75 = 0; cb46cf75 <= (_45568bb8_["children"]["length"] - 1); cb46cf75++){
+        const _4f827765_ = (_45568bb8_["children"][cb46cf75]["querySelector"](".co-wrap-info"))["children"][0];
+        _4f827765_ && _4f827765_["querySelectorAll"]("dd[class^='variation-Nmerode']")["forEach"](_43e80019_ => _c03f3890_["push"](_43e80019_["children"][0]["innerHTML"]));
     }
+    _c03f3890_["slice"](0,8)["forEach"](_f78fb0ef_ => {
+        _309c231a_ += _f78fb0ef_ + ",";
+    });
+    _91db9855_["value"] = (_309c231a_["substring"](0,(_309c231a_["length"] - 1)));
 </script>
